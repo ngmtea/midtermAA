@@ -17,7 +17,9 @@ int main()
     rs = a[1] + a[2];
     fto(i,3,n)
     {
-        b[i] = max(a[i] + b[i-2], a[i] + a[i-1] + b[i-3]);
+        b[i] = b[i-1];
+        b[i] = max(b[i], a[i] + b[i-2]);
+        b[i] = max(b[i], a[i] + a[i-1] + b[i-3]);
         rs = max(rs, b[i]);
     }
     cout << rs;
